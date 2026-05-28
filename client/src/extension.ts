@@ -100,7 +100,7 @@ export function activate(context: ExtensionContext): Promise<LanguageClient> {
 
 	/** Absolute path to `server.js` */
 	const extId = context.extension.id;
-	const serverModule = context.asAbsolutePath(`${extId.startsWith('mark-wiemer') ? 'ahk2/' : ''}server/${process.env.DEBUG ? 'out' : 'dist'}/server.js`);
+	const serverModule = context.asAbsolutePath(`${extId.startsWith('mark-wiemer') ? 'ahk2/' : ''}server/${process.env.DEBUG === 'true' ? 'out' : 'dist'}/server.js`);
 	logDebug(`Running in ${process.env.DEBUG ? 'debug' : 'prod'} mode`, logFunc);
 	logDebug(`Server module: ${serverModule}`, logFunc);
 
